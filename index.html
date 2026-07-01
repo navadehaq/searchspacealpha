@@ -1,0 +1,91 @@
+---
+layout: default
+title: Competitions
+description: Browse live quantitative, ML, and algorithmic hiring competitions.
+---
+
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__eyebrow">Merit-Driven Hiring</div>
+    <h1>Prove your skills. Get hired on the numbers.</h1>
+    <p>SearchSpace runs deterministic, benchmark-driven competitions in data science, ML, and algorithms. Top performers win guaranteed interviews and cash prizes — no resumes required.</p>
+    <div class="hero__actions">
+      <a href="#competitions" class="btn btn--primary">Browse Competitions</a>
+      <a href="{{ '/how-it-works.html' | relative_url }}" class="btn btn--on-dark">How It Works</a>
+    </div>
+
+    {% assign open_count = 0 %}
+    {% assign total_prize = 0 %}
+    {% for c in site.competitions %}
+      {% if c.status == "open" %}{% assign open_count = open_count | plus: 1 %}{% endif %}
+      {% assign total_prize = total_prize | plus: c.total_prize_pool %}
+    {% endfor %}
+
+    <div class="hero__stats">
+      <div>
+        <div class="hero__stat-value">{{ site.competitions | size }}</div>
+        <div class="hero__stat-label">Competitions</div>
+      </div>
+      <div>
+        <div class="hero__stat-value">{{ open_count }}</div>
+        <div class="hero__stat-label">Open Now</div>
+      </div>
+      <div>
+        <div class="hero__stat-value">${{ total_prize | divided_by: 1000 }}k+</div>
+        <div class="hero__stat-label">Prizes Awarded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container section" id="competitions">
+  <div class="section__header">
+    <div>
+      <h2>Live &amp; Upcoming Competitions</h2>
+      <p>Ranked, benchmark-driven challenges from hiring companies.</p>
+    </div>
+    <a href="{{ site.submit_competition_form_url }}" class="btn btn--outline" target="_blank" rel="noopener">Submit a Competition</a>
+  </div>
+
+  {% assign competitions = site.competitions | sort: 'deadline' %}
+
+  {% if competitions.size > 0 %}
+    <div class="competition-grid">
+      {% for competition in competitions %}
+        <article class="competition-card">
+          <div class="competition-card__top">
+            {% if competition.status == "open" %}
+              <span class="badge badge--open">Open</span>
+            {% else %}
+              <span class="badge badge--closed">Closed</span>
+            {% endif %}
+            <span class="badge">{{ competition.category }}</span>
+          </div>
+
+          <div class="competition-card__company">{{ competition.company_name }}</div>
+          <h3><a href="{{ competition.url | relative_url }}">{{ competition.title }}</a></h3>
+          <p class="excerpt">{{ competition.summary }}</p>
+
+          <div class="competition-card__meta">
+            <div class="competition-card__meta-item">
+              <span class="competition-card__meta-label">Deadline</span>
+              <span class="competition-card__meta-value">{{ competition.deadline | date: "%b %-d, %Y" }}</span>
+            </div>
+            <div class="competition-card__meta-item">
+              <span class="competition-card__meta-label">Prize Pool</span>
+              <span class="competition-card__meta-value competition-card__meta-value--prize">${{ competition.total_prize_pool }}</span>
+            </div>
+            <div class="competition-card__meta-item">
+              <span class="competition-card__meta-label">Interviews</span>
+              <span class="competition-card__meta-value">Top {{ competition.guaranteed_interviews }}</span>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state">
+      <p>No competitions are live yet. Check back soon.</p>
+    </div>
+  {% endif %}
+</div>

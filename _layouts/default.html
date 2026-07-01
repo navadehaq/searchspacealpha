@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href="{{ '/' | relative_url }}">
+        <span class="site-header__mark">S</span>
+        SearchSpace
+      </a>
+      <nav class="site-header__nav">
+        <ul class="site-header__links">
+          <li><a href="{{ '/' | relative_url }}">Competitions</a></li>
+          <li><a href="{{ '/how-it-works.html' | relative_url }}">How It Works</a></li>
+        </ul>
+        <a class="btn btn--on-dark" href="{{ site.submit_competition_form_url }}" target="_blank" rel="noopener">
+          Submit a Competition
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span>&copy; {{ site.time | date: '%Y' }} SearchSpace. All rights reserved.</span>
+      <ul class="site-footer__links">
+        <li><a href="{{ '/how-it-works.html' | relative_url }}">How It Works</a></li>
+        <li><a href="{{ site.submit_competition_form_url }}" target="_blank" rel="noopener">Submit a Competition</a></li>
+        <li><a href="mailto:hello@{{ site.submissions_domain }}">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

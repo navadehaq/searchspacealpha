@@ -1,0 +1,141 @@
+---
+layout: default
+---
+
+<section class="competition-hero">
+  <div class="container">
+    <span class="competition-hero__crumb">
+      <a href="{{ '/' | relative_url }}">Competitions</a> / {{ page.category }}
+    </span>
+    <div class="competition-hero__badges">
+      {% if page.status == "open" %}
+        <span class="badge badge--open">Open for Submissions</span>
+      {% else %}
+        <span class="badge badge--closed">Closed</span>
+      {% endif %}
+      <span class="badge badge--orange">{{ page.category }}</span>
+    </div>
+    <h1>{{ page.title }}</h1>
+    <p class="competition-hero__company">Hosted by {{ page.company_name }}</p>
+  </div>
+</section>
+
+<div class="competition-stat-bar">
+  <div class="container competition-stat-bar__inner">
+    <div class="competition-stat">
+      <div class="competition-stat__label">Submission Deadline</div>
+      <div class="competition-stat__value">{{ page.deadline | date: "%B %-d, %Y" }}</div>
+    </div>
+    <div class="competition-stat">
+      <div class="competition-stat__label">Total Prize Pool</div>
+      <div class="competition-stat__value competition-stat__value--prize">${{ page.total_prize_pool }}</div>
+    </div>
+    <div class="competition-stat">
+      <div class="competition-stat__label">Guaranteed Interviews</div>
+      <div class="competition-stat__value">Top {{ page.guaranteed_interviews }}</div>
+    </div>
+    <div class="competition-stat">
+      <div class="competition-stat__label">Benchmark Metric</div>
+      <div class="competition-stat__value">{{ page.scoring_metric }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="container competition-layout">
+  <div class="competition-content">
+
+    <section id="outline">
+      <h2><span class="section-index">1</span> Competition Outline</h2>
+
+      <h3>Background</h3>
+      <p>{{ page.background }}</p>
+
+      <h3>Target &amp; Benchmark</h3>
+      <p>{{ page.target_benchmark }}</p>
+
+      <h3>Dataset</h3>
+      <p>
+        <a href="{{ page.dataset_url }}" class="btn btn--outline" target="_blank" rel="noopener">Download Dataset</a>
+      </p>
+
+      <h3>Scoring Rules</h3>
+      {{ page.scoring_rules | markdownify }}
+    </section>
+
+    <section id="prizes">
+      <h2><span class="section-index">2</span> Prize Structure</h2>
+      <p>The prize pool is split across the top-ranked leaderboard finishers. All winners listed below also receive a guaranteed first-round interview with {{ page.company_name }}.</p>
+
+      <div class="prize-breakdown">
+        {% for tier in page.prize_tiers %}
+          <div class="prize-item {% if forloop.first %}prize-item--top{% endif %}">
+            <div class="prize-item__rank">{{ tier.rank }}</div>
+            <div class="prize-item__value">${{ tier.cash }}</div>
+            <div class="prize-item__note">{{ tier.interview }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section id="company">
+      <h2><span class="section-index">3</span> About {{ page.company_name }}</h2>
+      <p>{{ page.company_background }}</p>
+    </section>
+
+    <section id="roles">
+      <h2><span class="section-index">4</span> Roles Being Hired</h2>
+      {{ page.roles_description | markdownify }}
+    </section>
+
+    <section id="rules">
+      <h2><span class="section-index">5</span> Fine Print &amp; Rules</h2>
+      {{ page.fine_print | markdownify }}
+    </section>
+
+    <section id="submission">
+      <h2><span class="section-index">6</span> Submission Instructions</h2>
+      {{ content }}
+
+      <div class="submission-box">
+        <p><strong>Submit your entry to:</strong><br>
+        <code>{{ page.codename }}@{{ site.submissions_domain }}</code></p>
+
+        <p><strong>Identity verification required:</strong></p>
+        <ul>
+          <li>Link to your LinkedIn profile</li>
+          <li>Full name matching your submission account</li>
+          <li>A valid email address for interview coordination if you place in the winning tiers</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <aside class="competition-sidebar">
+    <div class="sidebar-card">
+      <h4>Key Facts</h4>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact__label">Company</span>
+        <span class="sidebar-fact__value">{{ page.company_name }}</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact__label">Category</span>
+        <span class="sidebar-fact__value">{{ page.category }}</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact__label">Deadline</span>
+        <span class="sidebar-fact__value">{{ page.deadline | date: "%b %-d, %Y" }}</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact__label">Prize Pool</span>
+        <span class="sidebar-fact__value">${{ page.total_prize_pool }}</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact__label">Interviews</span>
+        <span class="sidebar-fact__value">Top {{ page.guaranteed_interviews }}</span>
+      </div>
+      <a href="{{ page.dataset_url }}" class="btn btn--outline" target="_blank" rel="noopener">Get Dataset</a>
+      <a href="mailto:{{ page.codename }}@{{ site.submissions_domain }}" class="btn btn--primary">Submit Entry</a>
+    </div>
+  </aside>
+</div>

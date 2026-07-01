@@ -1,0 +1,37 @@
+title: SearchSpace
+description: >-
+  Quantitative, competition-based hiring. Companies post data science, ML,
+  and algorithmic competitions with deterministic, benchmark-driven rankings.
+  Top performers win guaranteed interviews and cash prizes.
+baseurl: ""
+url: ""
+
+# Google Form used site-wide for "Submit a Competition"
+submit_competition_form_url: "https://forms.gle/your-google-form-id"
+
+# Contact / submissions domain referenced on competition pages
+submissions_domain: "searchspace.net"
+
+collections:
+  competitions:
+    output: true
+    permalink: /competitions/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: competitions
+    values:
+      layout: competition
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+markdown: kramdown
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
