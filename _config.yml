@@ -7,7 +7,7 @@ baseurl: "/searchspacealpha"
 url: "https://navade.me"
 
 # Google Form used site-wide for "Submit a Competition"
-submit_competition_form_url: "https://forms.gle/your-google-form-id"
+submit_competition_form_url: "https://forms.gle/LoZe1u4JnozDfgoLA"
 
 # Contact / submissions domain referenced on competition pages
 submissions_domain: "searchspace.net"

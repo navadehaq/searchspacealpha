@@ -1,6 +1,6 @@
 ---
-title: "Robotic Grasping Reinforcement Learning Challenge"
-company_name: "Ferrous Robotics"
+title: "Robotic Reinforcement Learning Environment"
+company_name: "Houston Dynamics"
 category: "Machine Learning / Robotics"
 status: "open"
 summary: "Train a reinforcement learning policy that learns robust multi-object grasping in a simulated warehouse-picking environment."
@@ -8,10 +8,10 @@ deadline: 2026-10-05
 scoring_metric: "Grasp Success Rate (held-out object set)"
 total_prize_pool: 50000
 guaranteed_interviews: 6
-codename: "ferrous-rl-233"
+codename: "houston-rl-233"
 
 background: >
-  Ferrous Robotics builds robotic picking systems for warehouse fulfillment
+  Houstin Dynamics builds robotic picking systems for warehouse fulfillment
   centers. A core bottleneck is generalizing grasp policies to novel,
   previously unseen objects without extensive per-SKU tuning. This
   competition provides a simulated pick-and-place environment (built on an
@@ -23,10 +23,10 @@ target_benchmark: >
   6-DOF arm with a parallel-jaw gripper, picking objects from a cluttered
   bin and placing them in a target zone. Policies are evaluated on a
   held-out set of 50 object meshes not included in the provided training
-  set. The benchmark to beat is Ferrous's internal PPO baseline policy,
+  set. The benchmark to beat is HD's internal PPO baseline policy,
   which achieves a 71.4% grasp success rate on the held-out set.
 
-dataset_url: "https://example.com/datasets/ferrous-grasping-rl-env.zip"
+dataset_url: "https://rail-berkeley.github.io/bridgedata/"
 
 scoring_rules: |
   - Policies are evaluated over 500 held-out episodes using 50 object meshes not seen during training.
@@ -34,7 +34,6 @@ scoring_rules: |
   - Submitted policies must run inference within 100ms per step on the provided reference GPU to be considered valid.
   - Competitors must submit trained model weights and the exact inference code used to produce actions; training code is optional but encouraged for tie-breaking review.
   - Any policy found to exploit simulator physics bugs rather than performing genuine grasps (as judged by a human review pass) will be disqualified.
-  - Each competitor may submit up to 3 trained policies; only the best-scoring valid submission counts.
 
 prize_tiers:
   - rank: "1st Place"
@@ -51,14 +50,14 @@ prize_tiers:
     interview: "Guaranteed first-round interview"
 
 company_background: >
-  Ferrous Robotics designs and deploys robotic picking arms for third-party
+  Houston Dynamics designs and deploys robotic picking arms for third-party
   logistics providers and e-commerce fulfillment centers across North
   America. The company's research group focuses on sim-to-real transfer,
   reinforcement learning, and grasp generalization, with deployed systems
   currently operating in 12 fulfillment centers.
 
 roles_description: |
-  This competition is sourcing candidates for:
+  This competition is sourcing internship candidates for:
 
   - **Robot Learning Research Engineer** — develop reinforcement learning
     and imitation learning methods for manipulation, and drive sim-to-real
@@ -67,14 +66,13 @@ roles_description: |
     environments, domain randomization pipelines, and evaluation
     infrastructure used to develop and validate grasping policies.
 
-  Both roles are full-time and based in Pittsburgh, PA, with a hybrid
-  option available after an initial on-site ramp period.
+  Both roles are based in Houston, TX for the summer of 2027.
 
 fine_print: |
-  - Open to individual competitors and teams of up to 3 people.
-  - Submitted model weights and inference code may be reviewed and re-run by Ferrous to confirm reported results; discrepancies beyond normal simulation variance may result in disqualification.
-  - The provided simulation environment is a modified, research-only version of Ferrous's internal training stack and does not reflect current production performance.
-  - Ferrous employees, contractors, and immediate family members are not eligible to compete.
+  - This is NOT a real competition. This is just a placeholder for future competitions that may be hosted on SearchSpace.
+  - Submitted model weights and inference code may be reviewed and re-run by HD to confirm reported results; discrepancies beyond normal simulation variance may result in disqualification.
+  - The provided simulation environment is a modified, research-only version of HD's internal training stack and does not reflect current production performance.
+  - HD employees, contractors, and immediate family members are not eligible to compete.
   - Cash prizes are subject to applicable tax withholding and reporting requirements.
   - Guaranteed interviews require passing standard identity verification and, where applicable, work authorization confirmation.
 ---
