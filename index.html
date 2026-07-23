@@ -6,37 +6,45 @@ description: Browse live quantitative, ML, and algorithmic hiring competitions.
 
 <section class="hero">
   <div class="container hero__inner">
-    <div class="hero__eyebrow">Competition-Based Hiring</div>
-    <h1>Solve problems, get hired.</h1>
-    <p>SearchSpace runs competitions for companies seeking premier technical talent. Top performers win guaranteed interviews and cash prizes, no resumes required.</p>
-    <div class="hero__actions">
-      <a href="#competitions" class="btn btn--primary">Browse Competitions</a>
-      <a href="{{ '/how-it-works.html' | relative_url }}" class="btn btn--on-dark">How It Works</a>
-    </div>
-
-    {% assign open_count = 0 %}
-    {% assign total_prize = 0 %}
-    {% for c in site.competitions %}
-      {% if c.status == "open" %}{% assign open_count = open_count | plus: 1 %}{% endif %}
-      {% assign total_prize = total_prize | plus: c.total_prize_pool %}
-    {% endfor %}
-
-    <div class="hero__stats">
-      <div>
-        <div class="hero__stat-value">{{ site.competitions | size }}</div>
-        <div class="hero__stat-label">Competitions</div>
+    <div class="hero__content">
+      <div class="hero__eyebrow">Competition-Based Hiring</div>
+      <h1>Solve problems, get hired.</h1>
+      <p>SearchSpace runs competitions for companies seeking premier technical talent. Top performers win guaranteed interviews and cash prizes, no resumes required.</p>
+      <div class="hero__actions">
+        <a href="#competitions" class="btn btn--primary">Browse Competitions</a>
+        <a href="{{ '/how-it-works.html' | relative_url }}" class="btn btn--on-dark">How It Works</a>
       </div>
-      <div>
-        <div class="hero__stat-value">{{ open_count }}</div>
-        <div class="hero__stat-label">Open Now</div>
-      </div>
-      <div>
-        <div class="hero__stat-value">${{ total_prize | divided_by: 1000 }}k+</div>
-        <div class="hero__stat-label">Prizes Awarded</div>
+
+      {% assign open_count = 0 %}
+      {% assign total_prize = 0 %}
+      {% for c in site.competitions %}
+        {% if c.status == "open" %}{% assign open_count = open_count | plus: 1 %}{% endif %}
+        {% assign total_prize = total_prize | plus: c.total_prize_pool %}
+      {% endfor %}
+
+      <div class="hero__stats">
+        <div>
+          <div class="hero__stat-value">{{ site.competitions | size }}</div>
+          <div class="hero__stat-label">Competitions</div>
+        </div>
+        <div>
+          <div class="hero__stat-value">{{ open_count }}</div>
+          <div class="hero__stat-label">Open Now</div>
+        </div>
+        <div>
+          <div class="hero__stat-value">${{ total_prize | divided_by: 1000 }}k+</div>
+          <div class="hero__stat-label">Prizes Awarded</div>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="hero__graphic" aria-hidden="true">
+    <canvas id="hero-netlist-canvas"></canvas>
+  </div>
 </section>
+
+<script src="{{ '/assets/js/hero-netlist.js' | relative_url }}"></script>
 
 <div class="container section" id="competitions">
   <div class="section__header">
@@ -52,7 +60,7 @@ description: Browse live quantitative, ML, and algorithmic hiring competitions.
   {% if competitions.size > 0 %}
     <div class="competition-grid">
       {% for competition in competitions %}
-        <article class="competition-card">
+        <article class="competition-card grain-{{ competition.color | default: 'pink' }}">
           <div class="competition-card__top">
             {% if competition.status == "open" %}
               <span class="badge badge--open">Open</span>

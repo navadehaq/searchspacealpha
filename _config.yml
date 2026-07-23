@@ -12,6 +12,23 @@ submit_competition_form_url: "https://forms.gle/LoZe1u4JnozDfgoLA"
 # Contact / submissions domain referenced on competition pages
 submissions_domain: "searchspace.net"
 
+# Valid values for a competition's front-matter `color:` field. Each name maps
+# to a grain-gradient palette (.grain-<name>) defined in assets/css/style.css,
+# applied to that competition's landing-page card and hero banner. Falls back
+# to "pink" for cards and "purple" for the hero if `color` is omitted.
+competition_colors:
+  - pink
+  - purple
+  - blue
+  - red
+  - green
+  - teal
+  - orange
+  - gold
+  - indigo
+  - magenta
+  - slate
+
 collections:
   competitions:
     output: true

@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<section class="competition-hero">
+<section class="competition-hero grain-{{ page.color | default: 'purple' }}">
   <div class="container">
     <span class="competition-hero__crumb">
       <a href="{{ '/' | relative_url }}">Competitions</a> / {{ page.category }}

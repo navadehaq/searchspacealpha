@@ -3,6 +3,7 @@ title: "Robotic Reinforcement Learning Environment"
 company_name: "Houston Dynamics"
 category: "Machine Learning / Robotics"
 status: "open"
+color: "blue"
 summary: "Train a reinforcement learning policy that learns robust multi-object grasping in a simulated warehouse-picking environment."
 deadline: 2026-10-05
 scoring_metric: "Grasp Success Rate (held-out object set)"

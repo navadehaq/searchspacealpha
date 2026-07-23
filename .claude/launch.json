@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "jekyll-searchspace",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-lc", "eval \"$(rbenv init -)\" && bundle exec jekyll serve -H 127.0.0.1 -P 4000"],
+      "port": 4000
+    }
+  ]
+}

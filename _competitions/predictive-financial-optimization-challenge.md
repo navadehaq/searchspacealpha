@@ -3,6 +3,7 @@ title: "Portfolio Optimization Challenge"
 company_name: "Three Sigma Investments"
 category: "Data Science"
 status: "open"
+color: "purple"
 summary: "Build a portfolio allocation model that maximizes risk-adjusted return on five years of held-out market data."
 deadline: 2026-09-15
 scoring_metric: "Sharpe Ratio (held-out)"

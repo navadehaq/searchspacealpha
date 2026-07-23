@@ -3,6 +3,7 @@ title: "Layout Optimization Challenge"
 company_name: "Mvidia"
 category: "Algorithmic"
 status: "open"
+color: "green"
 summary: "Design a placement-and-routing heuristic that minimizes wirelength and congestion on a real macro-cell benchmark netlist."
 deadline: 2026-08-28
 scoring_metric: "Weighted Wirelength + Congestion Penalty"
