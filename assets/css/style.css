@@ -640,6 +640,121 @@ code {
   font-size: 1.05rem;
 }
 
+/* --------------------------------------------------------------------------
+   Submit-a-competition form
+   -------------------------------------------------------------------------- */
+
+.submit-form {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.submit-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.submit-form label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-navy-900);
+  margin-bottom: 6px;
+}
+
+.submit-form__hint {
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.submit-form input,
+.submit-form select,
+.submit-form textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.submit-form input:focus,
+.submit-form select:focus,
+.submit-form textarea:focus {
+  outline: none;
+  border-color: var(--color-navy-900);
+  box-shadow: 0 0 0 3px var(--color-blue-50);
+}
+
+.submit-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.submit-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6b72' stroke-width='1.6' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 34px;
+}
+
+.submit-form__field-note {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+}
+
+.submit-form__submit-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.submit-form__submit-note {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.submit-form__divider {
+  max-width: 640px;
+  margin: 36px auto;
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.submit-form__callout {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 18px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-blue-50);
+}
+
+.submit-form__callout p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.submit-form__callout strong {
+  color: var(--color-navy-900);
+}
+
+.submit-form__confirm {
+  text-align: center;
+}
+
 .two-column {
   display: grid;
   grid-template-columns: 1fr;
@@ -1059,6 +1174,70 @@ code {
   text-decoration: underline;
 }
 
+.submission-box__lede {
+  margin-bottom: 18px;
+}
+
+.submission-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.submission-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.submission-form label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 6px;
+}
+
+.submission-form input,
+.submission-form textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 10px 13px;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.submission-form input::placeholder,
+.submission-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.submission-form input:focus,
+.submission-form textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.submission-form textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.submission-form__submit {
+  align-self: flex-start;
+  background: var(--color-white);
+  color: var(--color-navy-900);
+}
+
+.submission-form__submit:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
 .competition-sidebar {
   position: sticky;
   top: 24px;
@@ -1193,6 +1372,14 @@ code {
 
   .competition-content {
     padding: 0;
+  }
+
+  .submit-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .submission-form__row {
+    grid-template-columns: 1fr;
   }
 
   .hero {

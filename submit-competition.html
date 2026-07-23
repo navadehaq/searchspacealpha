@@ -1,0 +1,75 @@
+---
+layout: default
+title: Submit a Competition
+description: Submit your company's competition for SearchSpace to host.
+---
+
+<div class="container">
+  <div class="page-header">
+    <h1>Submit a Competition</h1>
+    <p>Tell us about the problem you want candidates to solve. We'll follow up to scope scoring, prizes, and timeline.</p>
+  </div>
+</div>
+
+<div class="container section">
+  <form class="submit-form" action="https://formspree.io/f/mpqvjogo" method="POST">
+    <input type="hidden" name="_subject" value="New competition submission">
+    <input type="hidden" name="_next" value="{{ site.url }}{{ '/thank-you.html' | relative_url }}">
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+    <div>
+      <label for="company">Company name</label>
+      <input type="text" id="company" name="company" placeholder="Mvidia" required>
+    </div>
+
+    <div class="submit-form__row">
+      <div>
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" placeholder="Jordan Lee" required>
+      </div>
+      <div>
+        <label for="email">Work email</label>
+        <input type="email" id="email" name="email" placeholder="jordan@mvidia.com" required>
+      </div>
+    </div>
+
+    <div>
+      <label for="title">Competition title</label>
+      <input type="text" id="title" name="competition_title" placeholder="Layout Optimization Challenge" required>
+    </div>
+
+    <div class="submit-form__row">
+      <div>
+        <label for="category">Category</label>
+        <select id="category" name="category" required>
+          <option value="" disabled selected>Select one</option>
+          {% for c in site.competition_categories %}
+            <option>{{ c }}</option>
+          {% endfor %}
+          <option>Other</option>
+        </select>
+      </div>
+      <div>
+        <label for="prize-pool">Target prize pool <span class="submit-form__hint">(USD)</span></label>
+        <input type="number" id="prize-pool" name="prize_pool" placeholder="50000" min="0" step="1000">
+      </div>
+    </div>
+
+    <div>
+      <label for="description">Describe the problem</label>
+      <textarea id="description" name="description" placeholder="What should competitors build, and how would you score it?" required></textarea>
+      <div class="submit-form__field-note">A rough scoring idea is fine — we'll help formalize it into a benchmark.</div>
+    </div>
+
+    <div class="submit-form__submit-row">
+      <button type="submit" class="btn btn--primary">Submit for Review</button>
+      <span class="submit-form__submit-note">No commitment — this starts a conversation, not a contract.</span>
+    </div>
+  </form>
+
+  <hr class="submit-form__divider">
+
+  <div class="submit-form__callout">
+    <p><strong>What happens after you submit:</strong> your submission goes straight to our team's inbox — no login, no dashboard. We reply from a real inbox to scope the benchmark, dataset, and prize structure together.</p>
+  </div>
+</div>

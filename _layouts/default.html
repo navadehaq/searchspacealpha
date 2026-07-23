@@ -20,7 +20,7 @@
           <li><a href="{{ '/' | relative_url }}">Competitions</a></li>
           <li><a href="{{ '/how-it-works.html' | relative_url }}">How It Works</a></li>
         </ul>
-        <a class="btn btn--on-dark" href="{{ site.submit_competition_form_url }}" target="_blank" rel="noopener">
+        <a class="btn btn--on-dark" href="{{ site.submit_competition_form_url | relative_url }}">
           Submit a Competition
         </a>
       </nav>
@@ -36,7 +36,7 @@
       <span>&copy; {{ site.time | date: '%Y' }} SearchSpace. All rights reserved.</span>
       <ul class="site-footer__links">
         <li><a href="{{ '/how-it-works.html' | relative_url }}">How It Works</a></li>
-        <li><a href="{{ site.submit_competition_form_url }}" target="_blank" rel="noopener">Submit a Competition</a></li>
+        <li><a href="{{ site.submit_competition_form_url | relative_url }}">Submit a Competition</a></li>
         <li><a href="mailto:hello@{{ site.submissions_domain }}">Contact</a></li>
       </ul>
     </div>

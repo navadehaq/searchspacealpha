@@ -78,7 +78,13 @@ palette by defining another `--grain-*` variable and a matching `.grain-*` class
 inlining gradients ad hoc. The how-it-works step cards pick their palette from the ancestor
 `.two-column__col--competitors`/`--companies` class, not from a `.grain-*` class.
 
-**Google Form + submission email are config-driven**: the "Submit a Competition" link
-(`site.submit_competition_form_url`) and the submission email domain (`site.submissions_domain`,
-combined with each competition's `page.codename` to form `codename@domain`) live in `_config.yml`,
-not hardcoded in templates.
+**"Submit a Competition" and submission email are config-driven**: the "Submit a Competition"
+link (`site.submit_competition_form_url`, a relative path to `submit-competition.html`, run
+through `relative_url` at each call site) and the submission email domain
+(`site.submissions_domain`, combined with each competition's `page.codename` to form
+`codename@domain`) live in `_config.yml`, not hardcoded in templates.
+
+**`submit-competition.html`** is a real page (not an external form): a plain HTML `<form>`
+posting to a Formspree endpoint (Basic HTML integration — no JS). Its category `<select>` loops
+over `site.competition_categories`, the same list documented above for a competition's `color`-
+adjacent `category` front-matter field — add new categories there, not just in the form.

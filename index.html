@@ -9,7 +9,7 @@ description: Browse live quantitative, ML, and algorithmic hiring competitions.
     <div class="hero__content">
       <div class="hero__eyebrow">Competition-Based Hiring</div>
       <h1>Solve problems, get hired.</h1>
-      <p>SearchSpace runs competitions for companies seeking premier technical talent. Top performers win guaranteed interviews and cash prizes, no resumes required.</p>
+      <p>SearchSpace runs competitions for startups seeking premier technical talent. Top performers win guaranteed interviews and cash prizes, no resumes required.</p>
       <div class="hero__actions">
         <a href="#competitions" class="btn btn--primary">Browse Competitions</a>
         <a href="{{ '/how-it-works.html' | relative_url }}" class="btn btn--on-dark">How It Works</a>
@@ -52,7 +52,7 @@ description: Browse live quantitative, ML, and algorithmic hiring competitions.
       <h2>Live &amp; Upcoming Competitions</h2>
       <p>Benchmark-driven challenges from hiring companies.</p>
     </div>
-    <a href="{{ site.submit_competition_form_url }}" class="btn btn--outline" target="_blank" rel="noopener">Submit a Competition</a>
+    <a href="{{ site.submit_competition_form_url | relative_url }}" class="btn btn--outline">Submit a Competition</a>
   </div>
 
   {% assign competitions = site.competitions | sort: 'deadline' %}

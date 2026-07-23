@@ -97,15 +97,38 @@ layout: default
       {{ content }}
 
       <div class="submission-box">
-        <p><strong>Submit your entry to:</strong><br>
-        <code>{{ page.codename }}@{{ site.submissions_domain }}</code></p>
+        <p class="submission-box__lede">Submit your entry below. We'll follow up by email if you've advanced.</p>
 
-        <p><strong>Identity verification required:</strong></p>
-        <ul>
-          <li>Link to your LinkedIn profile</li>
-          <li>Full name matching your submission account</li>
-          <li>A valid email address for interview coordination if you place in the winning tiers</li>
-        </ul>
+        <form class="submission-form" action="https://formspree.io/f/mgoglrwn" method="POST">
+          <input type="hidden" name="_subject" value="Competition submission: {{ page.title }}">
+          <input type="hidden" name="competition" value="{{ page.title }}">
+          <input type="hidden" name="competition_codename" value="{{ page.codename }}">
+          <input type="hidden" name="_next" value="{{ site.url }}{{ '/thank-you.html' | relative_url }}">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="submission-form__row">
+            <div>
+              <label for="sub-name">Full name</label>
+              <input type="text" id="sub-name" name="name" placeholder="First Last" required>
+            </div>
+            <div>
+              <label for="sub-email">Email</label>
+              <input type="email" id="sub-email" name="email" placeholder="name@example.com" required>
+            </div>
+          </div>
+
+          <div>
+            <label for="sub-repo">Submission repository link</label>
+            <input type="url" id="sub-repo" name="repository_link" placeholder="https://github.com/you/solution" required>
+          </div>
+
+          <div>
+            <label for="sub-details">Additional details (optional)</label>
+            <textarea id="sub-details" name="details" placeholder="Environment setup, dependencies, or anything else we should know."></textarea>
+          </div>
+
+          <button type="submit" class="btn submission-form__submit">Submit Entry</button>
+        </form>
       </div>
     </section>
 
@@ -135,7 +158,7 @@ layout: default
         <span class="sidebar-fact__value">Top {{ page.guaranteed_interviews }}</span>
       </div>
       <a href="{{ page.dataset_url }}" class="btn btn--outline" target="_blank" rel="noopener">Get Dataset</a>
-      <a href="mailto:{{ page.codename }}@{{ site.submissions_domain }}" class="btn btn--primary">Submit Entry</a>
+      <a href="#submission" class="btn btn--primary">Submit Entry</a>
     </div>
   </aside>
 </div>

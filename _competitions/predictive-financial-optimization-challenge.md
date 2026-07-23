@@ -71,16 +71,9 @@ roles_description: |
 fine_print: |
   - This is NOT a real competition. This is just a placeholder for future competitions that may be hosted on SearchSpace.
   - Open to all individual competitors 18 or older. 
-  - All submitted code and models remain the intellectual property of the competitor; Meridian receives a non-exclusive license to evaluate submissions.
-  - Meridian employees and contractors are not eligible to compete.
+  - All submitted code and models remain the intellectual property of the competitor; Three Sigma receives a non-exclusive license to evaluate submissions.
+  - Three Sigma employees and contractors are not eligible to compete.
   - Cash prizes are subject to applicable tax withholding and reporting requirements.
-  - Meridian reserves the right to disqualify submissions that show evidence of look-ahead bias, data leakage, or benchmark data scraping.
+  - Three Sigma reserves the right to disqualify submissions that show evidence of look-ahead bias, data leakage, or benchmark data scraping.
   - Guaranteed interviews are contingent on passing a standard identity and background verification.
 ---
-
-Submit your solution as a single CSV of daily portfolio weights following the
-format described in the dataset README, along with the source code used to
-generate it (Python or R accepted).
-
-Include a short (1-page max) write-up describing your modeling approach —
-this is not scored but is reviewed by the hiring panel for finalists.

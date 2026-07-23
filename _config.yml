@@ -6,11 +6,21 @@ description: >-
 baseurl: ""
 url: "https://searchspace.net"
 
-# Google Form used site-wide for "Submit a Competition"
-submit_competition_form_url: "https://forms.gle/LoZe1u4JnozDfgoLA"
+# "Submit a Competition" link used site-wide (header nav, footer, homepage
+# section). Points at our own Formspree-backed page rather than an external
+# form, so it's a relative path run through `relative_url` at each call site.
+submit_competition_form_url: "/submit-competition.html"
 
 # Contact / submissions domain referenced on competition pages
 submissions_domain: "searchspace.net"
+
+# Central list of competition categories. Used to populate the category
+# dropdown on the "Submit a Competition" form, and documents the valid
+# values for a competition's front-matter `category` field.
+competition_categories:
+  - Algorithmic
+  - Data Science
+  - Machine Learning / Robotics
 
 # Valid values for a competition's front-matter `color:` field. Each name maps
 # to a grain-gradient palette (.grain-<name>) defined in assets/css/style.css,
