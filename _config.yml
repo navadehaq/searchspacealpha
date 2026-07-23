@@ -49,6 +49,7 @@ markdown: kramdown
 
 exclude:
   - README.md
+  - CLAUDE.md
   - Gemfile
   - Gemfile.lock
   - node_modules
